@@ -78,9 +78,9 @@
                   header("Location:registro.php");
               }
 
-          header("Location:registro.php");
+          header("Location:registro.php");*/ 
   }
-  */ 
+  
 ?>
 
 <!doctype html>
