@@ -1,7 +1,6 @@
 <?php
- include("../APP_TICKEST/programacion.php");
-  //include("/xampp/htdocs/APP_TICKEST/programacion.php");
-  include("../APP_TICKEST/phpqrcode/qrlib.php");
+  include("programacion.php");
+  include("phpqrcode/qrlib.php");
   include_once('tbs_class.php'); 
   include_once('plugins/tbs_plugin_opentbs.php'); 
 ?>
@@ -32,7 +31,7 @@
 
         QRcode::png($contenido,$filename,$level,$tamanio);
           //guarda en la base de datos
-          $con= new Conexion();
+ /*         $con= new Conexion();
 
           $sentenciasql="INSERT INTO `t_registro`( `Nombre`, `Telefono`, `Correo`, `Carrera`, `Matricula`, `estado`) 
           VALUES ('$nombre','$telefono','$correo','$carrea','$matricula', 1);";
@@ -40,7 +39,7 @@
 
           $con->ejecutar($sentenciasql);
           $con=null;
-          
+ */         
 
               $TBS = new clsTinyButStrong; 
               $TBS->Plugin(TBS_INSTALL, OPENTBS_PLUGIN); 
