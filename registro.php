@@ -1,7 +1,7 @@
 <?php
   include("programacion.php");
   include("phpqrcode/qrlib.php");
-  include_once('tbs_class.php'); 
+ // include_once('tbs_class.php'); 
   include_once('plugins/tbs_plugin_opentbs.php'); 
 ?>
 
@@ -39,7 +39,7 @@
 
           $con->ejecutar($sentenciasql);
           $con=null;
- */         
+         
 
               $TBS = new clsTinyButStrong; 
               $TBS->Plugin(TBS_INSTALL, OPENTBS_PLUGIN); 
@@ -80,7 +80,7 @@
 
           header("Location:registro.php");
   }
-  
+  */ 
 ?>
 
 <!doctype html>
