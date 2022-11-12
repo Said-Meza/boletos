@@ -2,7 +2,7 @@
   include("programacion.php");
   include("phpqrcode/qrlib.php");
  // include_once('tbs_class.php'); 
-  include_once('plugins/tbs_plugin_opentbs.php'); 
+  //include_once('plugins/tbs_plugin_opentbs.php'); 
 ?>
 
 <?php
@@ -16,6 +16,13 @@
         $carrea=( isset($_POST['carrera']) )? $_POST['carrera']:"";
         $grado=( isset($_POST['grado']) )? $_POST['grado']:"";
 
+        $sentenciasql="INSERT INTO lista ( `Nombre`, `Telefono`, `Correo`, `Carrera`,`Grado`, `Matricula`) 
+        VALUES ('$nombre','$telefono','$correo','$carrea','$grado','$matricula');";
+       // echo $sentenciasql;
+
+        $con->ejecutar($sentenciasql);
+        $con=null;
+
         //genera qr
         $dir='temp/';
 
@@ -26,19 +33,14 @@
 
         $tamanio=7;
         $level='M';
-        $fromsize=3;
+        $fromsize=2;
         $contenido= 'Aceptado Gracias por Venir:|'.$nombre.'|'.$telefono.'|'.$matricula.'|'.$correo.'|'.$carrea.'|'.$grado;
 
         QRcode::png($contenido,$filename,$level,$tamanio);
           //guarda en la base de datos
  /*         $con= new Conexion();
 
-          $sentenciasql="INSERT INTO `t_registro`( `Nombre`, `Telefono`, `Correo`, `Carrera`, `Matricula`, `estado`) 
-          VALUES ('$nombre','$telefono','$correo','$carrea','$matricula', 1);";
-         // echo $sentenciasql;
-
-          $con->ejecutar($sentenciasql);
-          $con=null;
+         
          
 
               $TBS = new clsTinyButStrong; 

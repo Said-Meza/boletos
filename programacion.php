@@ -4,17 +4,18 @@ use LDAP\Result;
 
 class Conexion
 {
-    private $servidor="localhost";
+    private $servidor="containers-us-west-109.railway.app";
     private $user="root";
-    private $password="";
-    private $db="graduacion22";
+    private $password="jTiFUSK45ifbd4d9A5kQ";
+    private $db="railway";
+    private $port="5761";
     private $con;
 
     public function __construct()
     {
         try 
         {
-            $this->con= new PDO("mysql:host=$this->servidor;dbname=$this->db",$this->user,$this->password);
+            $this->con= new PDO("mysql:host=$this->servidor;dbname=$this->db;port=$this->port",$this->user,$this->password);
             $this->con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         }
          catch (PDOException $e) 
