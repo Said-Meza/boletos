@@ -20,6 +20,7 @@
         VALUES ('$nombre','$telefono','$correo','$carrea','$grado','$matricula');";
        // echo $sentenciasql;
 
+        $con= new Conexion();
         $con->ejecutar($sentenciasql);
         $con=null;
 
